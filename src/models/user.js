@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    tableName: 'user',         // Nombre de la tabla en la base de datos
+    timestamps: true,           // Incluye createdAt y updatedAt
+    underscored: true,          // Usa snake_case para nombres de columnas
   });
   return User;
 };
