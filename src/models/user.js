@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     tableName: 'user', // Nombre de la tabla en la base de datos
-    timestamps: false, // Incluye createdAt y updatedAt
-    underscored: true, // Usa snake_case para nombres de columnas
+    timestamps: true, // Incluye createdAt y updatedAt
+    // underscored: true, // Usa snake_case para nombres de columnas
   });
 
   // Exporta el modelo para usarlo en otras partes de la aplicación
