@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     role: {
       type: DataTypes.STRING,
       allowNull: true,
-    },
+    }
+  }, {
     tableName: 'user_conversation', // Nombre de la tabla en la base de datos
     timestamps: true, // Incluye createdAt y updatedAt
     // underscored: true, // Usa snake_case para nombres de columnas

@@ -1,6 +1,5 @@
-// const { User } = require('../models');
-// const User = require('../models/User');
-const { User } = require('../models'); // Asegúrate de que la ruta sea correcta
+
+const { User } = require('../models'); 
 
 class UserRepository {
   async findAll() {
