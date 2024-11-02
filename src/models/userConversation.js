@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     // role (opcional, string para indicar roles como "admin", "miembro", etc. en caso de conversaciones grupales)
     role: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     tableName: 'user_conversation', // Nombre de la tabla en la base de datos
     timestamps: true, // Incluye createdAt y updatedAt
