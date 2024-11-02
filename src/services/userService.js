@@ -12,6 +12,10 @@ class UserService {
   async create(userData) {
     return userRepository.create(userData);
   }
+  // Método para encontrar un usuario por criterios específicos
+   async findOne(conditions) {
+    return userRepository.findOne(conditions);
+  }
 }
 
 module.exports = new UserService();
