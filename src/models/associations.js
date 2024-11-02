@@ -9,7 +9,12 @@ module.exports = (sequelize) => {
         as: 'conversation' // Alias para usar en las consultas
       });
 
-      UserConversation.hasMany(Message, { // Asociación con Message
+      /* UserConversation.hasMany(Message, { // Asociación con Message
+        foreignKey: 'conversationId', // La clave foránea en Message
+        as: 'messages' // Alias para usar en las consultas
+      });  */
+
+      Conversation.hasMany(Message, { // Asociación con Message
         foreignKey: 'conversationId', // La clave foránea en Message
         as: 'messages' // Alias para usar en las consultas
       });

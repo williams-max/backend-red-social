@@ -2,19 +2,21 @@
 const { UserConversation, Conversation, Message } = require('../models'); 
 
 class UserConversationRepository {
-  async findAll() {
-    console.log('llegueeeeeee ')
+  async findAll(params) {
+    console.log('llegueeeeeee ', params)
     return UserConversation.findAll({
       include: [
         {
           model: Conversation,
           as: 'conversation', // Alias que usaste en la asociación
-          // attributes: ['id', 'name'] // Especifica qué atributos deseas incluir del modelo User
-        },
-        {
-          model: Message,
-          as: 'messages', // Alias que usaste en la asociación
-          // attributes: ['id', 'name'] // Especifica qué atributos deseas incluir del modelo User
+          // attributes: ['id', 'name'] //
+          include: [
+            {
+              model: Message,
+              as: 'messages', // Alias que usaste en la asociación
+              // attributes: ['id', 'name'] //
+            }
+          ]
         }
       ]
     });

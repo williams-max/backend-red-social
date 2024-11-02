@@ -2,7 +2,7 @@ const userConversationService = require('../services/userConversationService');
 
 class UserConversationController {
   async findAll(req, res) {
-    const users = await userConversationService.findAll();
+    const users = await userConversationService.findAll(req.query);
     res.json(users);
   }
 
