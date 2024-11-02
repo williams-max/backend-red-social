@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors'); // Importa cors
 const userRoutes = require('./routes/userRoutes');
 const userConversationRoutes = require('./routes/userConversationRoutes');
 
 
 const app = express();
+app.use(cors()); // Configura cors
 app.use(express.json());
 
 app.use('/api', userRoutes);

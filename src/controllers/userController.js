@@ -40,7 +40,6 @@ class UserController {
       if (!isValidPassword) {
         return res.status(401).json({ message: 'Invalid credentials' });
       }
-  
       // Generar token
       const token = jwt.sign({ id: user.id, email: user.email }, secretKey, { expiresIn: '1h' });
   
