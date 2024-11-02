@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false // Asegúrate de que la contraseña no sea nula
     },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'image_url'
+    },
   }, {
     tableName: 'user', // Nombre de la tabla en la base de datos
     timestamps: true, // Incluye createdAt y updatedAt
