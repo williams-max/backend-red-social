@@ -18,14 +18,14 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      /* createdAt: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      } */
+      }
     });
   },
   async down(queryInterface, Sequelize) {
