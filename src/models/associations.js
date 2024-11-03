@@ -1,6 +1,6 @@
 // associations.js
 module.exports = (sequelize) => {
-    const { UserConversation ,Conversation , Message } = sequelize.models;
+    const {User, UserConversation ,Conversation , Message } = sequelize.models;
   
     // Definir las relaciones entre modelos
 
@@ -17,6 +17,10 @@ module.exports = (sequelize) => {
       Conversation.hasMany(Message, { // Asociación con Message
         foreignKey: 'conversationId', // La clave foránea en Message
         as: 'messages' // Alias para usar en las consultas
+      });
+      Message.belongsTo(User, { // Asociación con Message
+        foreignKey: 'userCreated', // La clave foránea en Message
+        as: 'userCreador' // Alias para usar en las consultas
       });
      /* UserConversation.belongsTo(models.User, {
         foreignKey: 'userId',

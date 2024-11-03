@@ -18,7 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     content: {
       type: DataTypes.STRING,
       allowNull: true, // Asegúrate de que el nombre no sea nulo
-    }
+    },
+    userCreated: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      field: 'user_created'
+    },
   }, {
     tableName: 'message', // Nombre de la tabla en la base de datos
     timestamps: true, // Incluye createdAt y updatedAt

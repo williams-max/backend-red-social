@@ -26,6 +26,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true, // Asegúrate de que el nombre no sea nulo
       },
+      userCreated: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        field: 'user_created'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

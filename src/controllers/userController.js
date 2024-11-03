@@ -31,6 +31,7 @@ class UserController {
   
       // Buscar usuario
       const user = await userService.findOne({ email: email });
+      console.log('aaaaa  ', user)
       if (!user) {
         return res.status(401).json({ message: 'Invalid credentials' });
       }
