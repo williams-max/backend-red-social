@@ -20,6 +20,17 @@ class MessageRepository {
           query.where.senderId = params?.senderId;
       }
     }
+    if (params?.conversationId) {
+      if (Array.isArray(params?.conversationId)) {
+          // Si `userId` es un array, usa `Op.in`
+          query.where.conversationId = {
+              [Op.in]: params?.conversationId
+          };
+      } else {
+          // Si `userId` es un valor único, usa el valor directamente
+          query.where.conversationId = params?.conversationId;
+      }
+    }
     return Message.findAll({
       ... query, // Pasamos el objeto `query` construido dinámicamente
       include: [

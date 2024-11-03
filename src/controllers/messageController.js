@@ -2,7 +2,7 @@ const messageService = require('../services/messageService');
 
 class MessageController {
   async findAll(req, res) {
-    const users = await messageService.findAll();
+    const users = await messageService.findAll(req.query);
     res.json(users);
   }
 
@@ -16,6 +16,12 @@ class MessageController {
   async create(req, res) {
     const userData = req.body;
     const newUser = await messageService.create(userData);
+    res.status(201).json(newUser);
+  }
+
+  async existeConversacionUsers(req, res) {
+    const data = req.body;
+    const newUser = await messageService.existeConversacionUsers(data);
     res.status(201).json(newUser);
   }
 }

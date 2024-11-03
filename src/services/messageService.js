@@ -3,14 +3,19 @@ const messageRepository = require('../repositories/messageRepository');
 const userConversationRepository = require('../repositories/userConversationRepository');
 
 class MessageService {
-  async findAll() {
-    return messageRepository.findAll();
+  async findAll(params) {
+    return messageRepository.findAll(params);
   }
 
   async findById(id) {
     return messageRepository.findById(id);
   }
 
+  async existeConversacionUsers(params) {
+    const existeConversacion = await messageRepository.existeConversacionUsers({
+      remitenteId: params.remitenteId, receptorId: params.receptorId})
+    return existeConversacion
+  }
   async create(userData) {
 
     let response = null
