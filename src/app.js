@@ -42,7 +42,12 @@ io.on('connection', (socket) => {
   socket.on('mensaje', (data) => {
     const { conversationId, remitenteId, receptorId, content } = data;
 
-    console.log("entre a est metoodo .....", remitenteId)
+    console.log('**************on mensaje***************************++++')
+    console.log("consversacion ID :: ", conversationId)
+    console.log("remtenteId :: ", remitenteId)
+    console.log("ReceptorId :: ", receptorId)
+    console.log("content :: ", content)
+    console.log('*******************************************************')
     // Enviar el mensaje a todos los usuarios en la conversación
     io.to(conversationId).emit('mensaje', {
       remitenteId,
