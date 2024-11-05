@@ -40,10 +40,9 @@ io.on('connection', (socket) => {
 
   // Escuchar evento de mensaje y reenviar a otros usuarios en la misma conversación
   socket.on('mensaje', (data) => {
-    console.log('aaaaaaa')
     const { conversationId, remitenteId, receptorId, content } = data;
 
-    console.log("entre a est metoodo .....")
+    console.log("entre a est metoodo .....", remitenteId)
     // Enviar el mensaje a todos los usuarios en la conversación
     io.to(conversationId).emit('mensaje', {
       remitenteId,
@@ -61,6 +60,6 @@ io.on('connection', (socket) => {
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
