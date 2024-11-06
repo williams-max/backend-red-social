@@ -40,19 +40,22 @@ io.on('connection', (socket) => {
 
   // Escuchar evento de mensaje y reenviar a otros usuarios en la misma conversación
   socket.on('mensaje', (data) => {
-    const { conversationId, remitenteId, receptorId, content } = data;
+    const { conversationId, remitenteId, receptorId, content, senderId ,userCreador } = data;
 
     console.log('**************on mensaje***************************++++')
     console.log("consversacion ID :: ", conversationId)
     console.log("remtenteId :: ", remitenteId)
     console.log("ReceptorId :: ", receptorId)
     console.log("content :: ", content)
+    console.log("user creador ", userCreador)
     console.log('*******************************************************')
     // Enviar el mensaje a todos los usuarios en la conversación
     io.to(conversationId).emit('mensaje', {
       remitenteId,
       receptorId,
       content,
+      senderId,
+      userCreador,
       createdAt: new Date().toISOString()
     });
   });

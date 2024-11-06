@@ -61,8 +61,25 @@ class MessageRepository {
     return Message.findByPk(id);
   }
 
-  async create(MessageData) {
+  /* async create(MessageData) {
     return Message.create(MessageData);
+  } */
+
+  async create(MessageData) {
+    // Crea el mensaje
+    const message = await Message.create(MessageData);
+  
+    // Luego, recupera el mensaje con los datos del usuario relacionado
+    return Message.findOne({
+      where: { id: message.id },
+      include: [
+        {
+          model: User,
+          as: 'userCreador',
+          // attributes: ['id', 'name'] // Atributos que deseas incluir
+        }
+      ]
+    });
   }
 }
 
