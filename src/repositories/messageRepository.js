@@ -81,6 +81,44 @@ class MessageRepository {
       ]
     });
   }
+
+  // Método para encontrar un usuario por criterios específicos
+  async findOne(conditions) {
+    return Message.findOne({ 
+      where: conditions.where,
+      order: conditions.order,
+      include: [
+        {
+          model: User,
+          as: 'userCreador',
+          // attributes: ['id', 'name'] // Atributos que deseas incluir
+        }
+      ]
+    });
+  }
+
+  async findOne(conditions) {
+    return Message.findOne({ 
+      where: {
+        ...conditions.where,
+        userCreated: {
+          [Op.ne]: conditions.ingoreUserCreated  // Esto ignora los registros con userCreadorId igual a 2
+        }
+      },
+      order: conditions.order,
+      include: [
+        {
+          model: User,
+          as: 'userCreador',
+          // attributes: ['id', 'name'] // Atributos que deseas incluir
+        }
+      ]
+    });
+  }
 }
+
+
+
+
 
 module.exports = new MessageRepository();
